@@ -22,8 +22,18 @@ for p in projects:
         os.environ[p.replace(".", "_") + "_PACKAGE_VERSION"] = version
 
 
-process = subprocess.Popen(["dotnet", "build", "-c", "Release"], stdout=subprocess.PIPE)
-print(process.communicate())
+process = subprocess.Popen(["dotnet", "build", "-c", "Release"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = process.communicate()
+print(out.decode())
+if err:
+    raise Exception(err)
+
+
+process = subprocess.Popen(["dotnet", "test"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = process.communicate()
+print(out.decode())
+if err:
+    raise Exception(err)
 
 
 for root, dirs, files in os.walk("src"):
