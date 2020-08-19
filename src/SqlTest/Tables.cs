@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Sql;
+using SqlSharp;
 
 namespace SqlSharpTest
 {

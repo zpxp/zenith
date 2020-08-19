@@ -4,8 +4,8 @@ using System.Data.Common;
 using System.Data.SQLite;
 using System.Threading;
 using System.Threading.Tasks;
-using Sql;
-using Sql.Core;
+using SqlSharp;
+using SqlSharp.Core;
 
 namespace SQLite.Profile
 {

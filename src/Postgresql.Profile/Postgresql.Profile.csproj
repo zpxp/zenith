@@ -9,7 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Sql\Sql.csproj" />
+	  <ProjectReference Include="..\SqlSharp\SqlSharp.csproj" />
 	</ItemGroup>
 
 </Project>

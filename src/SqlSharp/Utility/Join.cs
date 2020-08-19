@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Sql.Exceptions;
-using Sql.Extensions;
+using SqlSharp.Exceptions;
+using SqlSharp.Extensions;
 
 namespace SqlSharp.Utility
 {

@@ -4,9 +4,9 @@ using System.Data.Common;
 using System.Threading;
 using Npgsql;
 using System.Threading.Tasks;
-using Sql;
-using Sql.Extensions;
-using Sql.Core;
+using SqlSharp;
+using SqlSharp.Extensions;
+using SqlSharp.Core;
 
 namespace Postgresql.Profile
 {

@@ -7,8 +7,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Sql.Extensions;
-using Sql.Utility;
+using SqlSharp.Extensions;
+using SqlSharp.Utility;
 
 namespace SqlSharp
 {

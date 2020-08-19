@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using Sql;
+using SqlSharp;
 
 namespace SqlSharpTest
 {

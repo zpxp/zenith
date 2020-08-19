@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Sql\Sql.csproj" />
+		<ProjectReference Include="..\SqlSharp\SqlSharp.csproj" />
 		<ProjectReference Include="..\SQLite.Profile\SQLite.Profile.csproj" />
 	</ItemGroup>
 

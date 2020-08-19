@@ -1,12 +1,12 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
-using Sql;
+using SqlSharp;
 using System.IO;
 using System.Data.SQLite;
 using System.Reflection;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
-using Sql.Service;
+using SqlSharp.Service;
 using System.Threading;
 using System.Collections.Concurrent;
 using Xunit;

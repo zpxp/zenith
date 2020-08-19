@@ -9,9 +9,9 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
-using Sql.Exceptions;
-using Sql.Extensions;
-using Sql.Utility;
+using SqlSharp.Exceptions;
+using SqlSharp.Extensions;
+using SqlSharp.Utility;
 
 namespace SqlSharp.Core
 {

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Sql\Sql.csproj" />
+    <ProjectReference Include="..\SqlSharp\SqlSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

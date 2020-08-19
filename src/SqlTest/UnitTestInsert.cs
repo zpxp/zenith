@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using Sql;
+using SqlSharp;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;

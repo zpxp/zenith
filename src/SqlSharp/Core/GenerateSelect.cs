@@ -6,9 +6,9 @@ using System.ComponentModel;
 using System.Data.Common;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Sql.Exceptions;
-using Sql.Extensions;
-using Sql.Utility;
+using SqlSharp.Exceptions;
+using SqlSharp.Extensions;
+using SqlSharp.Utility;
 
 namespace SqlSharp.Core
 {

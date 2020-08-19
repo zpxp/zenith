@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Sql.Core;
+using SqlSharp.Core;
 
 namespace SqlSharp
 {

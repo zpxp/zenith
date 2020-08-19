@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.Common;
 using System.Threading;
 using System.Threading.Tasks;
-using Sql.Core;
+using SqlSharp.Core;
 
 namespace SqlSharp
 {
