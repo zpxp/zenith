@@ -12,8 +12,8 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Description>SQLite provider for SqlSharp</Description>
 		<PackageId>SqlSharp.Providers.SQLite</PackageId>
-		<Version Condition="'$(PACKAGE_VERSION)' != ''">$(PACKAGE_VERSION)</Version>
-		<Version Condition="'$(PACKAGE_VERSION)' == ''">1.0.0-local</Version>
+		<Version Condition="'$(SqlSharp_Providers_SQLite_PACKAGE_VERSION)' != ''">$(SqlSharp_Providers_SQLite_PACKAGE_VERSION)</Version>
+		<Version Condition="'$(SqlSharp_Providers_SQLite_PACKAGE_VERSION)' == ''">1.0.0-local</Version>
 		<Authors>zpxp</Authors>
 		<Company>zpxp</Company>
 		<RootNamespace>SqlSharp.Providers.SQLite</RootNamespace>
@@ -25,5 +25,9 @@
 		<RepositoryUrl>https://github.com/zpxp/sqlsharp</RepositoryUrl>
 		<PublishRepositoryUrl>True</PublishRepositoryUrl>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="LICENSE"/>
+	</ItemGroup>
 
 </Project>

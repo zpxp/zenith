@@ -4,8 +4,8 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Description>PostgreSQL provider for SqlSharp</Description>
 		<PackageId>SqlSharp.Providers.Postgresql</PackageId>
-		<Version Condition="'$(PACKAGE_VERSION)' != ''">$(PACKAGE_VERSION)</Version>
-		<Version Condition="'$(PACKAGE_VERSION)' == ''">1.0.0-local</Version>
+		<Version Condition="'$(SqlSharp_Providers_Postgresql_PACKAGE_VERSION)' != ''">$(SqlSharp_Providers_Postgresql_PACKAGE_VERSION)</Version>
+		<Version Condition="'$(SqlSharp_Providers_Postgresql_PACKAGE_VERSION)' == ''">1.0.0-local</Version>
 		<Authors>zpxp</Authors>
 		<Company>zpxp</Company>
 		<RootNamespace>SqlSharp.Providers.Postgresql</RootNamespace>
@@ -25,5 +25,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\SqlSharp\SqlSharp.csproj" />
 	</ItemGroup>
-
+	
+		<ItemGroup>
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="LICENSE"/>
+	</ItemGroup>
 </Project>

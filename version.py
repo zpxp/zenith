@@ -18,13 +18,13 @@ projects = [
 
 def commit(file, version):
     process = subprocess.Popen(["git", "add", file], stdout=subprocess.PIPE)
-    process.communicate()
+    print(process.communicate())
     process = subprocess.Popen(["git", "commit", "-m", version], stdout=subprocess.PIPE)
-    process.communicate()
+    print(process.communicate())
     process = subprocess.Popen(["git", "tag", version], stdout=subprocess.PIPE)
-    process.communicate()
+    print(process.communicate())
     process = subprocess.Popen(["git", "push", "--tags", "origin"], stdout=subprocess.PIPE)
-    process.communicate()
+    print(process.communicate())
 
 
 
