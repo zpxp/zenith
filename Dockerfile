@@ -4,4 +4,4 @@ RUN apt-get update && apt-get install -y wget zip && wget -O docfx.zip https://g
 WORKDIR /workspace
 VOLUME /workspace
 
-ENTRYPOINT mono /docfx/docfx.exe init -o /workspace/docs
+ENTRYPOINT mono /docfx/docfx.exe build 

@@ -4,7 +4,7 @@
       "src": [
         {
           "files": [
-            "src/**.csproj"
+            "*.sln"
           ]
         }
       ],
@@ -23,8 +23,8 @@
       },
       {
         "files": [
-          "docs/**.md",
-          "docs/**/toc.yml",
+          "articles/**.md",
+          "articles/**/toc.yml",
           "toc.yml",
           "*.md"
         ]
@@ -44,8 +44,7 @@
         ],
         "exclude": [
           "obj/**",
-          "docs/**",
-          "_site/**"
+          "docs/**"
         ]
       }
     ],
