@@ -25,17 +25,25 @@ for p in projects:
 process = subprocess.Popen(["dotnet", "build", "-c", "Release"], stdout=subprocess.PIPE)
 print(process.communicate())
 
-process = subprocess.Popen(
-    [
-        "dotnet",
-        "nuget",
-        "push",
-        "*/**/*.nupkg",
-        "-k",
-        os.environ["NUGET_KEY"],
-        "-s",
-        "https://api.nuget.org/v3/index.json",
-    ],
-    stdout=subprocess.PIPE,
-)
-print(process.communicate())
+
+for root, dirs, files in os.walk("src"):
+    for file in [os.path.join(os.path.abspath(root), elem) for elem in files if elem]:
+        if file.endswith(".nupkg") and not file.endswith("local.nupkg"):
+            try:
+                print("Pushing file: " + file)
+                process = subprocess.Popen(
+                    [
+                        "dotnet",
+                        "nuget",
+                        "push",
+                        file,
+                        "-k",
+                        os.environ["NUGET_KEY"],
+                        "-s",
+                        "https://api.nuget.org/v3/index.json",
+                    ],
+                    stdout=subprocess.PIPE,
+                )
+                print(process.communicate())
+            except:
+                pass
