@@ -91,7 +91,7 @@ namespace Zenith.Extensions
 			  || type.Equals(typeof(decimal));
 		}
 
-		internal static bool IsNullableType(this Type type)
+		public static bool IsNullableType(this Type type)
 		{
 			return type != null && type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
 		}
@@ -105,7 +105,7 @@ namespace Zenith.Extensions
 			return type;
 		}
 
-		internal static bool IsListType(this Type type)
+		public static bool IsListType(this Type type)
 		{
 			return typeof(ICollection).IsAssignableFrom(type) && !type.IsArray;
 		}

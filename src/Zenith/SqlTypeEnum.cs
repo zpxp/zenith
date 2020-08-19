@@ -2,6 +2,9 @@ using System;
 
 namespace Zenith
 {
+	/// <summary>
+	/// Specify type of the command to be run in `IUnitOfWork.NewCommand`
+	/// </summary>
 	[Flags]
 	public enum SqlTypeEnum
 	{

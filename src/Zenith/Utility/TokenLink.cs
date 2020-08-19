@@ -7,7 +7,7 @@ namespace Zenith.Utility
 	/// <summary>
 	/// Set Token to a cancelled state when token is cancelled or this object is disposed
 	/// </summary>
-	public class TokenLink : IDisposable
+	internal class TokenLink : IDisposable
 	{
 		private readonly CancellationToken token;
 		private readonly CancellationTokenSource canceller;

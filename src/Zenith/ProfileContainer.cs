@@ -14,7 +14,8 @@ namespace Zenith
 	}
 
 	/// <summary>
-	/// Singleton instance that holds sql profiles
+	/// Singleton instance that holds sql profiles. The default container assumes all profiles will be 
+	/// added before using the service i.e only thread safe reads
 	/// </summary>
 	internal class DefaultProfileContainer : IProfileContainer
 	{

@@ -1,15 +1,29 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Zenith.Core;
 
 namespace Zenith.Service
 {
 
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class SqlService
 	{
+		/// <summary>
+		/// Change to override profile container behavoir
+		/// </summary>
+		/// <returns></returns>
 		public static IProfileContainer ProfileContainer = new DefaultProfileContainer();
 
-		public static IServiceCollection AddSql(this IServiceCollection services, Action<SqlConfiguration> configure)
+		/// <summary>
+		/// Call to add Zenith sql to the specified IServiceCollection 
+		/// </summary>
+		/// <param name="services"></param>
+		/// <param name="configure"></param>
+		/// <returns></returns>
+		public static IServiceCollection AddZenithSql(this IServiceCollection services, Action<SqlConfiguration> configure)
 		{
 			var opts = new SqlConfiguration();
 			configure(opts);

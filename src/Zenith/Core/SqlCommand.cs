@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Zenith.Extensions;
 using Zenith.Utility;
 
-namespace Zenith
+namespace Zenith.Core
 {
 	internal class SqlCommand : ISqlCommand
 	{

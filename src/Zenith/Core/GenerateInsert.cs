@@ -79,6 +79,9 @@ namespace Zenith.Core
 			return null;
 		}
 
+		/// <summary>
+		/// Provider based configuration for GenerateInsert
+		/// </summary>
 		public class Config
 		{
 			/// <summary>
@@ -106,6 +109,9 @@ namespace Zenith.Core
 		}
 	}
 
+	/// <summary>
+	/// Use based configuration for GenerateInsert
+	/// </summary>
 	public class GenerateInsertOptions
 	{
 		/// <summary>

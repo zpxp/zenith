@@ -35,12 +35,12 @@ namespace ZenithTest
 			services.AddTransient<ILogger, Logger>();
 
 			// register sql module
-			services.AddSql(options =>
+			services.AddZenithSql(options =>
 			{
 				options.Profile = "default";
 				options.ConnectionString = connectionString;
 				options.Provider = new Zenith.Providers.SQLite.SQLiteProvider();
-				options.AddMiddleware(async (context, next) =>
+				options.AddMiddleware((context, next) =>
 				{
 					if ((SqlTypeEnum.Update | SqlTypeEnum.Insert).HasFlag(context.Type))
 					{
@@ -53,11 +53,11 @@ namespace ZenithTest
 						}
 					}
 
-					return await next();
+					return next();
 				});
 			});
 
-			services.AddSql(options =>
+			services.AddZenithSql(options =>
 			{
 				options.Profile = "profile 2";
 				options.ConnectionString = connectionString;

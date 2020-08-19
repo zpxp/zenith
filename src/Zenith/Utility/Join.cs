@@ -7,7 +7,7 @@ using Zenith.Extensions;
 
 namespace Zenith.Utility
 {
-	public class Join
+	internal class Join
 	{
 		public Join(Type leftType, Type rightType, string leftPk, string rightPk, string fk, PropertyInfo leftToRightProp, FkExistsIn side)
 		{

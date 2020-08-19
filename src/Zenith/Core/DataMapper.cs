@@ -33,6 +33,9 @@ namespace Zenith.Core
 		}
 
 
+		/// <summary>
+		/// Instance based configuration for DataMapper
+		/// </summary>
 		public class Config
 		{
 			/// <summary>

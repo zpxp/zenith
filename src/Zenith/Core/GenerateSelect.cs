@@ -312,7 +312,7 @@ namespace Zenith.Core
 
 
 		/// <summary>
-		/// Provider level config
+		/// Provider based configuration for GenerateSelect
 		/// </summary>
 		public class Config
 		{
@@ -362,7 +362,7 @@ namespace Zenith.Core
 	}
 
 	/// <summary>
-	/// Call level options
+	/// Use based configuration for GenerateSelect
 	/// </summary>
 	public class GenerateSelectOptions
 	{
@@ -407,10 +407,19 @@ namespace Zenith.Core
 		public virtual int? Limit { get; set; }
 	}
 
+	/// <summary>
+	/// Defines the strategies used to create join aliases across more than 1 table in `SqlJoinAttribute` joins
+	/// </summary>
 	public enum TableJoinNameStrategyEnum
 	{
-		FirstLetter = 0,
-		FullName = 1
+		/// <summary>
+		/// Use the full name of the object in constructing aliases
+		/// </summary>
+		FullName = 0,
+		/// <summary>
+		/// Only use the first letter of the object as the alias. Used in certian databases that limit the length of an alias name
+		/// </summary>
+		FirstLetter = 1,
 	}
 
 
@@ -419,16 +428,52 @@ namespace Zenith.Core
 	/// </summary>
 	public class GSTable
 	{
+		/// <summary>
+		/// true when this table is root of the join tree
+		/// </summary>
 		public readonly bool isRoot;
+		/// <summary>
+		/// Alais for this table
+		/// </summary>
 		public readonly string tableAlias;
+		/// <summary>
+		/// Columns to be included from this table
+		/// </summary>
 		public readonly List<string> columns;
+		/// <summary>
+		/// Key name on the left side of the join
+		/// </summary>
 		public string leftJoinKey;
+		/// <summary>
+		/// Key name on the right side of the join
+		/// </summary>
 		public string rightJoinKey;
+		/// <summary>
+		/// Any conditions to be appended to the end of the join condition. See `SqlJoinAttribute.Condition`
+		/// </summary>
 		public string joinCondition;
+		/// <summary>
+		/// The join attribute for this table
+		/// </summary>
 		public readonly SqlJoinAttribute joinAttr;
+		/// <summary>
+		/// C# type that describes this table
+		/// </summary>
 		public readonly Type tableType;
+		/// <summary>
+		/// Parent table that joins on the left side of this table
+		/// </summary>
 		public readonly GSTable parentTable;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="isRoot"></param>
+		/// <param name="tableType"></param>
+		/// <param name="tableAlias"></param>
+		/// <param name="parentTable"></param>
+		/// <param name="joinAttr"></param>
+		/// <param name="columns"></param>
 		public GSTable(bool isRoot, Type tableType, string tableAlias, GSTable parentTable, SqlJoinAttribute joinAttr, List<string> columns = null)
 		{
 			this.parentTable = parentTable;

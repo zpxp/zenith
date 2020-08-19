@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Zenith.Core;
 
-namespace Zenith
+namespace Zenith.Core
 {
 	internal class UnitOfWork : IUnitOfWork
 	{
