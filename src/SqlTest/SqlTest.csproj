@@ -16,8 +16,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\SqlSharp\SqlSharp.csproj" />
-		<ProjectReference Include="..\SqlSharp.Providers.SQLite\SQLite.csproj" />
+		<ProjectReference Include="..\Zenith\Zenith.csproj" />
+		<ProjectReference Include="..\Zenith.Providers.SQLite\SQLite.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

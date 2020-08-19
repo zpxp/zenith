@@ -1,12 +1,12 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
-using SqlSharp;
+using Zenith;
 using System.IO;
 using System.Data.SQLite;
 using System.Reflection;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
-using SqlSharp.Service;
+using Zenith.Service;
 using System.Threading;
 using System.Collections.Concurrent;
 using Xunit;
@@ -14,7 +14,7 @@ using Xunit;
 //tests only work syncro
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
-namespace SqlSharpTest
+namespace ZenithTest
 {
 	public class TestsFixture : IDisposable
 	{
@@ -39,7 +39,7 @@ namespace SqlSharpTest
 			{
 				options.Profile = "default";
 				options.ConnectionString = connectionString;
-				options.Provider = new SqlSharp.Providers.SQLite.SQLiteProvider();
+				options.Provider = new Zenith.Providers.SQLite.SQLiteProvider();
 				options.AddMiddleware(async (context, next) =>
 				{
 					if ((SqlTypeEnum.Update | SqlTypeEnum.Insert).HasFlag(context.Type))
@@ -61,7 +61,7 @@ namespace SqlSharpTest
 			{
 				options.Profile = "profile 2";
 				options.ConnectionString = connectionString;
-				options.Provider = new SqlSharp.Providers.SQLite.SQLiteProvider();
+				options.Provider = new Zenith.Providers.SQLite.SQLiteProvider();
 			});
 		}
 

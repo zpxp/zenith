@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\Zenith\Zenith.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Data.SQLite" Version="1.0.113.1" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Description>SQLite provider for Zenith</Description>
+		<PackageId>Zenith.Providers.SQLite</PackageId>
+		<Version Condition="'$(Zenith_Providers_SQLite_PACKAGE_VERSION)' != ''">$(Zenith_Providers_SQLite_PACKAGE_VERSION)</Version>
+		<Version Condition="'$(Zenith_Providers_SQLite_PACKAGE_VERSION)' == ''">1.0.0-local</Version>
+		<Authors>zpxp</Authors>
+		<Company>zpxp</Company>
+		<RootNamespace>Zenith.Providers.SQLite</RootNamespace>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IncludeSource>True</IncludeSource>
+		<IncludeSymbols>True</IncludeSymbols>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<PackageTags>ORM;sql;lean</PackageTags>
+		<RepositoryUrl>https://github.com/zpxp/zenith</RepositoryUrl>
+		<PublishRepositoryUrl>True</PublishRepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+</Project>

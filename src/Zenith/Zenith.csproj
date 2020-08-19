@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Description>Combines the power of raw SQL with the convenience of an ORM</Description>
+		<PackageId>Zenith</PackageId>
+		<Version Condition="'$(Zenith_PACKAGE_VERSION)' != ''">$(Zenith_PACKAGE_VERSION)</Version>
+		<Version Condition="'$(Zenith_PACKAGE_VERSION)' == ''">1.0.0-local</Version>
+		<Authors>zpxp</Authors>
+		<Company>zpxp</Company>
+		<RootNamespace>Zenith</RootNamespace>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IncludeSource>True</IncludeSource>
+		<IncludeSymbols>True</IncludeSymbols>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<PackageTags>ORM;sql;lean;c#;database;connector;unitofwork</PackageTags>
+		<RepositoryUrl>https://github.com/zpxp/zenith</RepositoryUrl>
+		<PublishRepositoryUrl>True</PublishRepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
+		<PackageReference Include="System.Data.Common" Version="4.3.0" />
+		<PackageReference Include="System.Linq.Async" Version="4.1.1" />
+		<PackageReference Include="System.Threading.Channels" Version="4.7.1" />
+	</ItemGroup>
+
+
+
+</Project>

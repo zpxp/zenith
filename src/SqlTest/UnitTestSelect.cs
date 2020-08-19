@@ -1,12 +1,12 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using SqlSharp;
+using Zenith;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;
 
-namespace SqlSharpTest
+namespace ZenithTest
 {
 
 	public class UnitTestSelect : IClassFixture<TestsFixture>

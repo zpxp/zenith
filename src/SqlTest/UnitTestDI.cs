@@ -1,9 +1,9 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using SqlSharp;
+using Zenith;
 
-namespace SqlSharpTest
+namespace ZenithTest
 {
 	
 	public class UnitTestDI : IClassFixture<TestsFixture>

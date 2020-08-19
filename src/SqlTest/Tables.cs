@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using SqlSharp;
+using Zenith;
 
-namespace SqlSharpTest
+namespace ZenithTest
 {
 
 	[SqlMappable(nameof(ContactId), "Contact")]

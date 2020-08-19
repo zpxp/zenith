@@ -10,7 +10,7 @@
 			"request": "launch",
 			"program": "${file}",
 			"console": "integratedTerminal",
-			"args": ["src/SqlSharp"]	
+			"args": ["src/Zenith"]	
 		},
 		{
 			"name": ".NET Core Launch (console)",

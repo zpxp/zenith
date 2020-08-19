@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6F9FDA9-9A33-4E22-97D5-B5F6145BC51D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp", "src\SqlSharp\SqlSharp.csproj", "{12792705-1342-48EF-833F-D5C3808FA571}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenith", "src\Zenith\Zenith.csproj", "{12792705-1342-48EF-833F-D5C3808FA571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlTest", "src\SqlTest\SqlTest.csproj", "{73ADC51E-F3BB-4427-8F7C-E2680DF8C4E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp.Providers.SQLite", "src\SqlSharp.Providers.SQLite\SQLite.csproj", "{07E3BA2C-8DB7-41D3-ACB2-7155E04C9C1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenith.Providers.SQLite", "src\Zenith.Providers.SQLite\SQLite.csproj", "{07E3BA2C-8DB7-41D3-ACB2-7155E04C9C1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp.Providers.Postgresql", "src\SqlSharp.Providers.Postgresql\Postgresql.csproj", "{EDB4B446-145A-4FC9-BAAD-4C7B01418352}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenith.Providers.Postgresql", "src\Zenith.Providers.Postgresql\Postgresql.csproj", "{EDB4B446-145A-4FC9-BAAD-4C7B01418352}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
