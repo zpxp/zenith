@@ -328,7 +328,10 @@ namespace Zenith
 								{
 									yield return Activator.CreateInstance(dataType);
 								}
-								yield return null;
+								else
+								{
+									yield return null;
+								}
 							}
 							else
 							{
