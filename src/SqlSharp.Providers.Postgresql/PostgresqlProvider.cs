@@ -8,7 +8,7 @@ using SqlSharp;
 using SqlSharp.Extensions;
 using SqlSharp.Core;
 
-namespace SqlSharp.Postgresql.Profile
+namespace SqlSharp.Providers.Postgresql
 {
 	public class PostgresqlProvider : ISqlProvider
 	{

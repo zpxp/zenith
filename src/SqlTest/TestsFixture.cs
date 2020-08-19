@@ -39,7 +39,7 @@ namespace SqlSharpTest
 			{
 				options.Profile = "default";
 				options.ConnectionString = connectionString;
-				options.Provider = new SqlSharp.SQLite.Profile.SQLiteProvider();
+				options.Provider = new SqlSharp.Providers.SQLite.SQLiteProvider();
 				options.AddMiddleware(async (context, next) =>
 				{
 					if ((SqlTypeEnum.Update | SqlTypeEnum.Insert).HasFlag(context.Type))
@@ -61,7 +61,7 @@ namespace SqlSharpTest
 			{
 				options.Profile = "profile 2";
 				options.ConnectionString = connectionString;
-				options.Provider = new SqlSharp.SQLite.Profile.SQLiteProvider();
+				options.Provider = new SqlSharp.Providers.SQLite.SQLiteProvider();
 			});
 		}
 

@@ -17,7 +17,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\SqlSharp\SqlSharp.csproj" />
-		<ProjectReference Include="..\SqlSharp.SQLite.Profile\SQLite.Profile.csproj" />
+		<ProjectReference Include="..\SqlSharp.Providers.SQLite\SQLite.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

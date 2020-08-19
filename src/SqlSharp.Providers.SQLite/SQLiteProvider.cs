@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SqlSharp;
 using SqlSharp.Core;
 
-namespace SqlSharp.SQLite.Profile
+namespace SqlSharp.Providers.SQLite
 {
 	public class SQLiteProvider : ISqlProvider
 	{
