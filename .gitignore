@@ -1,0 +1,68 @@
+
+*.user
+Services/Web.Debug.config
+DashboardUI/Web.Debug.config
+Services/Web.Release.config
+DashboardUI/Web.Release.config
+applicationhost.config
+.suo
+packages
+Services/Uploads
+Services/PDFs
+*.TMP
+!Services/bin/ffmpeg.exe
+!Rollbar/
+Services/Temp
+DashboardUI/Temp
+.vs/
+Services/node_modules/
+
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+node_modules/
+.local-chromium/
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+coverage/
+
+# production
+build/
+
+Temp/
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+build/
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+bash.exe.stackdump
+
+
+uploads/
+
+cake/tools
+cake/artifacts
+# .vscode/
+
+*pb.go
