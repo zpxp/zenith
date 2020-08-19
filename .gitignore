@@ -66,3 +66,13 @@ cake/artifacts
 # .vscode/
 
 *pb.go
+
+###############
+#    folder   #
+###############
+/**/DROP/
+/**/TEMP/
+/**/packages/
+/**/bin/
+/**/obj/
+_site
