@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp", "src\SqlSharp\Sq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlTest", "src\SqlTest\SqlTest.csproj", "{73ADC51E-F3BB-4427-8F7C-E2680DF8C4E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite.Profile", "src\SQLite.Profile\SQLite.Profile.csproj", "{07E3BA2C-8DB7-41D3-ACB2-7155E04C9C1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp.SQLite.Profile", "src\SqlSharp.SQLite.Profile\SQLite.Profile.csproj", "{07E3BA2C-8DB7-41D3-ACB2-7155E04C9C1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgresql.Profile", "src\Postgresql.Profile\Postgresql.Profile.csproj", "{EDB4B446-145A-4FC9-BAAD-4C7B01418352}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlSharp.Postgresql.Profile", "src\SqlSharp.Postgresql.Profile\Postgresql.Profile.csproj", "{EDB4B446-145A-4FC9-BAAD-4C7B01418352}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
