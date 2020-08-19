@@ -19,6 +19,11 @@ namespace Zenith.Core
 	{
 		private static ConcurrentDictionary<string, Dictionary<string, GSTable>> cache = new ConcurrentDictionary<string, Dictionary<string, GSTable>>();
 		private readonly Config config;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="config"></param>
 		public GenerateSelect(Config config = null)
 		{
 			this.config = config ?? new Config();
@@ -184,6 +189,13 @@ namespace Zenith.Core
 			return sql;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="tableType"></param>
+		/// <param name="rootAlias"></param>
+		/// <param name="options"></param>
+		/// <returns></returns>
 		public string Generate(Type tableType, string rootAlias, GenerateSelectOptions options)
 		{
 			options ??= new GenerateSelectOptions();
@@ -449,7 +461,7 @@ namespace Zenith.Core
 		/// </summary>
 		public string rightJoinKey;
 		/// <summary>
-		/// Any conditions to be appended to the end of the join condition. See `SqlJoinAttribute.Condition`
+		/// Any conditions to be appended to the end of the join condition. See <see cref="SqlJoinAttribute.Condition"/>
 		/// </summary>
 		public string joinCondition;
 		/// <summary>

@@ -13,11 +13,22 @@ namespace Zenith.Core
 	{
 
 		private readonly Config config;
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="config"></param>
 		public GenerateInsert(Config config = null)
 		{
 			this.config = config ?? new Config();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="tableType"></param>
+		/// <param name="data"></param>
+		/// <param name="options"></param>
+		/// <returns></returns>
 		public string Generate(Type tableType, object data, GenerateInsertOptions options)
 		{
 			options ??= new GenerateInsertOptions();

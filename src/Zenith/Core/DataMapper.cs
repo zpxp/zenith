@@ -22,10 +22,21 @@ namespace Zenith.Core
 	{
 
 		private readonly Config config;
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="config"></param>
 		public DataMapper(Config config = null)
 		{
 			this.config = config ?? new Config();
 		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="dataType"></param>
+		/// <param name="reader"></param>
+		/// <param name="token"></param>
+		/// <returns></returns>
 		public IAsyncEnumerable<object> MapStream(Type dataType, DbDataReader reader, CancellationToken token)
 		{
 			var mapper = new MapInstance(dataType, reader, config, token);

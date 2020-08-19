@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace Zenith.Extensions
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class SqlExtensions
 	{
 		/// <summary>
@@ -75,6 +78,11 @@ namespace Zenith.Extensions
 			return type;
 		}
 
+		/// <summary>
+		/// Is type a 'simple' type
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
 		public static bool IsSimple(this Type type)
 		{
 			if (type.IsNullableType())
@@ -91,11 +99,21 @@ namespace Zenith.Extensions
 			  || type.Equals(typeof(decimal));
 		}
 
+		/// <summary>
+		/// Is type a nullable struct type
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
 		public static bool IsNullableType(this Type type)
 		{
 			return type != null && type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
 		}
 
+		/// <summary>
+		/// Strip of generic collection types
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
 		public static Type ReduceList(this Type type)
 		{
 			while (typeof(ICollection).IsAssignableFrom(type) && !type.IsArray)
@@ -105,6 +123,11 @@ namespace Zenith.Extensions
 			return type;
 		}
 
+		/// <summary>
+		/// Is type a generic collection type
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
 		public static bool IsListType(this Type type)
 		{
 			return typeof(ICollection).IsAssignableFrom(type) && !type.IsArray;
