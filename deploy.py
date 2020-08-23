@@ -47,6 +47,7 @@ for root, dirs, files in os.walk("src"):
                         "nuget",
                         "push",
                         file,
+                        "--skip-duplicate",
                         "-k",
                         os.environ["NUGET_KEY"],
                         "-s",
