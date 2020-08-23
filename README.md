@@ -73,6 +73,8 @@ CREATE TABLE [Bossman](
 );
 ```
 
+View the [src/SqlTest](Tests folder) for more examples.
+
 ### Profiles
 
 More than one database provider or connection string can be registered using `options.Profile`.
