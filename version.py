@@ -49,6 +49,7 @@ if project in projects:
 
     if opt == "s":
         try:
+            print("Current Version: ", version)
             ver = semver.VersionInfo.parse(input("Enter new semver: "))
             print(project, version, "->", str(ver))
             with open(filepath, "w") as writer:
