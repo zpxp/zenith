@@ -73,7 +73,7 @@ CREATE TABLE [Bossman](
 );
 ```
 
-View the [src/SqlTest](Tests folder) for more examples.
+View the [Tests folder](src/SqlTest) for more examples.
 
 ### Profiles
 
