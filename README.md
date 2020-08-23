@@ -4,6 +4,8 @@ Combines the power of raw SQL with the convenience of an ORM
 
 ### Installation
 
+Requires C# 8.0 or greater.
+
 `dotnet add package Zenith`
 
 ### Usage
