@@ -57,7 +57,7 @@ namespace Zenith.Core
 			/// <summary>
 			/// Naming strategy used in naming sub join table aliases
 			/// </summary>
-			public virtual TableJoinNameStrategyEnum JoinNameStrategy { get; set; } = TableJoinNameStrategyEnum.FirstLetter;
+			public virtual TableJoinNameStrategyEnum JoinNameStrategy { get; set; } = TableJoinNameStrategyEnum.FullName;
 		}
 	}
 
