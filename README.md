@@ -14,7 +14,7 @@ Make sure `Microsoft.Extensions.Logging.Ilogger` has been registered to the serv
 services.AddTransient<ILogger, MyAppLogger>();
 ```
 
-Add Zenith sql to the service collection.
+Install the provider library for your database and add Zenith sql to the service collection.
 
 ```cs
 // this will register a SQLite provider to the default profile using `connectionString` 
