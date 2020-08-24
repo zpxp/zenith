@@ -75,7 +75,7 @@ CREATE TABLE [Bossman](
 );
 ```
 
-More complicated SQL can be executed such as CTEs and window functions.
+More complicated SQL can be executed such as CTEs, joins and window functions.
 
 ``` cs
 public async Task<List<SelectCTEWorker>> SelectCTE()
