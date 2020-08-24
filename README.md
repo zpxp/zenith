@@ -75,6 +75,52 @@ CREATE TABLE [Bossman](
 );
 ```
 
+More complicated SQL can be executed such as CTEs and window functions.
+
+``` cs
+public async Task<List<SelectCTEWorker>> SelectCTE()
+{
+	string sql = @"
+WITH [data] AS (
+	SELECT [w].*, [wb].[BossmanId] FROM [Worker] [w]
+	JOIN [WorkerBossman] [wb] ON [w].[WorkerId] = [wb].[WorkerId]
+),
+[lead] AS (
+	SELECT 
+	 *
+	,LEAD([d].[Name]) OVER (ORDER BY [d].[Name]) AS [NextWorkerName]
+	FROM [data] [d]
+)
+
+SELECT 
+	 [l].[WorkerId]
+	,[l].[ContactId]
+	,[l].[Name]
+	,[l].[BossmanId]
+	,[l].[NextWorkerName]
+	,[c].[ContactId] AS [Contact_ContactId]
+	,[c].[Name] AS [Contact_Name]
+	,[c].[Number] AS [Contact_Number]
+FROM [lead] [l]
+LEFT JOIN [Contact] [c] ON [l].[ContactId] = [c].[ContactId]
+ORDER BY [l].[Name];
+";
+	using var command = unitOfWork.NewCommand(SqlTypeEnum.Select, sql);
+	return await command.SelectManyAsync<SelectCTEWorker>();
+}
+
+[SqlMappable(nameof(WorkerId), "Worker")]
+public class SelectCTEWorker
+{
+	public int WorkerId { get; set; }
+	public int? ContactId { get; set; }
+	public string Name { get; set; }
+	public string NextWorkerName { get; set; }
+	[SqlJoin("Contact")]
+	public Contact WorkerContact { get; set; }
+}
+```
+
 View the [Tests folder](src/SqlTest) for more examples.
 
 ### Profiles
