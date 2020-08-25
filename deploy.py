@@ -42,7 +42,7 @@ try:
             "dotnet",
             "nuget",
             "push",
-            "*/**/Release/*nupkg",
+            "*/**/Release/*.nupkg",
             "--skip-duplicate",
             "-k",
             os.environ["NUGET_KEY"],
