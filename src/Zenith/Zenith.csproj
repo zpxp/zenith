@@ -13,7 +13,7 @@
 		<IncludeSource>True</IncludeSource>
 		<IncludeSymbols>True</IncludeSymbols>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<PackageTags>ORM;sql;lean;c#;database;connector;unitofwork</PackageTags>
+		<PackageTags>ORM;sql;lean;c#;database;connector;unitofwork;ado.net</PackageTags>
 		<RepositoryUrl>https://github.com/zpxp/zenith</RepositoryUrl>
 		<PublishRepositoryUrl>True</PublishRepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -23,7 +23,6 @@
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
 		<PackageReference Include="System.Data.Common" Version="4.3.0" />
 		<PackageReference Include="System.Linq.Async" Version="4.1.1" />
-		<PackageReference Include="System.Threading.Channels" Version="4.7.1" />
 	</ItemGroup>
 
 

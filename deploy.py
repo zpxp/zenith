@@ -36,25 +36,21 @@ if err:
     raise Exception(err)
 
 
-for root, dirs, files in os.walk("src"):
-    for file in [os.path.join(os.path.abspath(root), elem) for elem in files if elem]:
-        if file.endswith(".nupkg") and not file.endswith("local.nupkg"):
-            try:
-                print("Pushing file: " + file)
-                process = subprocess.Popen(
-                    [
-                        "dotnet",
-                        "nuget",
-                        "push",
-                        file,
-                        "--skip-duplicate",
-                        "-k",
-                        os.environ["NUGET_KEY"],
-                        "-s",
-                        "https://api.nuget.org/v3/index.json",
-                    ],
-                    stdout=subprocess.PIPE,
-                )
-                print(process.communicate())
-            except:
-                pass
+try:
+    process = subprocess.Popen(
+        [
+            "dotnet",
+            "nuget",
+            "push",
+            "*/**/Release/*.nupkg",
+            "--skip-duplicate",
+            "-k",
+            os.environ["NUGET_KEY"],
+            "-s",
+            "https://api.nuget.org/v3/index.json",
+        ],
+        stdout=subprocess.PIPE,
+    )
+    print(process.communicate())
+except:
+    pass
