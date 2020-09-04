@@ -272,7 +272,7 @@ namespace Zenith.Core
 			if (config.middlewares.Count == 0)
 			{
 				// no middleware. create command and execute
-				command.CommandText = sql;
+				command.CommandText = context.Sql;
 				ProcessParameters(command, context);
 				return action(command, dataType, columnName, token);
 			}
@@ -290,7 +290,7 @@ namespace Zenith.Core
 					}
 					else
 					{
-						command.CommandText = sql;
+						command.CommandText = context.Sql;
 						ProcessParameters(command, context);
 						return Task.FromResult(action(command, dataType, columnName, token));
 					}
