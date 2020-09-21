@@ -507,7 +507,7 @@ namespace Zenith.Core
 
 				// now check this node
 				object keyVal = row[namespacedKeyName];
-				return HasData && keyVal.Equals(KeyValue);
+				return HasData && keyVal.Equals(KeyValue) && keyVal != DBNull.Value;
 			}
 
 			private void SetValue(object item, string columnName, PropertyInfo prop)

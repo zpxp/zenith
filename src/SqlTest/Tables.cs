@@ -74,7 +74,7 @@ namespace ZenithTest
 
 
 	[SqlMappable(nameof(BossmanBuildingId), "BossmanBuilding")]
-	public class BossmanBuildingSubClass 
+	public class BossmanBuildingSubClass
 	{
 		public int BossmanBuildingId { get; set; }
 		public Sub Subprops { get; set; }
@@ -101,6 +101,12 @@ namespace ZenithTest
 	{
 		[SqlJoin("Car")]
 		public List<WorkerCar> Cars { get; set; }
+	}
+
+	public class WorkerContacts : BaseWorker
+	{
+		[SqlJoin("Contact")]
+		public List<Contact> Contacts { get; set; }
 	}
 
 	public class WorkerInterface : BaseWorker

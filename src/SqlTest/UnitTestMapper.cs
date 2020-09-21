@@ -72,6 +72,24 @@ namespace ZenithTest
 			}
 		}
 
+		
+		[Fact]
+		public async Task SelectMapEmptyList()
+		{
+			using (var processContainer = data.services.BuildServiceProvider())
+			{
+				var unitOfWork = processContainer.GetRequiredService<IUnitOfWork>();
+				string sql = unitOfWork.CreateSelect<WorkerContacts>("b");
+				sql += @"WHERE workerid = 2";
+
+				using var command = unitOfWork.NewCommand(SqlTypeEnum.Select, sql);
+				var row = await command.SelectSingleAsync<WorkerContacts>();
+				Assert.NotNull(row);
+				Assert.Equal(row.WorkerId, 2);
+				Assert.Equal(row.Contacts.Count, 0);
+			}
+		}
+
 		[Fact]
 		public async Task SelectListStream()
 		{
