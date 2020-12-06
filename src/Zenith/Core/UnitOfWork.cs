@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -21,7 +22,7 @@ namespace Zenith.Core
 		public SqlConfiguration Config => config;
 		private readonly ILogger logger;
 
-		public UnitOfWork(SqlConfiguration config, IServiceProvider scope, ILogger logger)
+		public UnitOfWork(SqlConfiguration config, IServiceProvider scope, ILogger<UnitOfWork> logger)
 		{
 			this.logger = logger;
 			this.scope = scope;

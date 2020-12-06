@@ -32,7 +32,7 @@ namespace ZenithTest
 
 			// Do "global" initialization here; Only called once.
 			services = new ServiceCollection();
-			services.AddTransient<ILogger, Logger>();
+			services.AddLogging();
 
 			// register sql module
 			services.AddZenithSql(options =>

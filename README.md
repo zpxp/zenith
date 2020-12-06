@@ -10,11 +10,7 @@ Requires .NET Standard 2.1 or greater.
 
 ### Usage
 
-Make sure `Microsoft.Extensions.Logging.Ilogger` has been registered to the service collection.
-
-``` cs
-services.AddTransient<ILogger, MyAppLogger>();
-```
+Make sure logging has been registered to the service collection by ensuring that `Microsoft.Extensions.DependencyInjection` extention method `services.AddLogging()` has been called.
 
 Install the provider library for your database and add Zenith sql to the service collection.
 
