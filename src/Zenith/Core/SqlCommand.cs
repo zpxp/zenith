@@ -67,22 +67,22 @@ namespace Zenith.Core
 		public async Task<object> SelectSingleAsync(Type dataType, CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, dataType, null, canceller.Token);
-			return await stream.FirstOrDefaultAsync();
+			var stream = await WithMiddleware(SelectStreamImpl, dataType, null, canceller.Token).ConfigureAwait(false);
+			return await stream.FirstOrDefaultAsync().ConfigureAwait(false);
 		}
 
 		public async Task<T> SelectSingleAsync<T>(CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), null, canceller.Token);
-			var result = (T)await stream.FirstOrDefaultAsync();
+			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), null, canceller.Token).ConfigureAwait(false);
+			var result = (T)await stream.FirstOrDefaultAsync().ConfigureAwait(false);
 			return result;
 		}
 
 		public async IAsyncEnumerable<object> SelectManyStreamAsync(Type dataType, [EnumeratorCancellation] CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, dataType, null, canceller.Token);
+			var stream = await WithMiddleware(SelectStreamImpl, dataType, null, canceller.Token).ConfigureAwait(false);
 			await foreach (var row in stream.WithCancellation(token))
 			{
 				yield return row;
@@ -94,7 +94,7 @@ namespace Zenith.Core
 		{
 			using var canceller = new TokenLink(token);
 			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), null, canceller.Token);
-			await foreach (var row in stream.WithCancellation(token))
+			await foreach (var row in stream.WithCancellation(token).ConfigureAwait(false))
 			{
 				yield return (T)row;
 			}
@@ -103,40 +103,40 @@ namespace Zenith.Core
 		public async Task<List<object>> SelectManyAsync(Type dataType, CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, dataType, null, canceller.Token);
+			var stream = await WithMiddleware(SelectStreamImpl, dataType, null, canceller.Token).ConfigureAwait(false);
 			// read to end of stream then return a list
-			return await stream.ToListAsync();
+			return await stream.ToListAsync().ConfigureAwait(false);
 		}
 
 		public async Task<List<T>> SelectManyAsync<T>(CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), null, canceller.Token);
+			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), null, canceller.Token).ConfigureAwait(false);
 			// read to end of stream then return a list
-			return await stream.Cast<T>().ToListAsync();
+			return await stream.Cast<T>().ToListAsync().ConfigureAwait(false);
 		}
 
 		public async Task<List<object>> SelectManyAsync(Type dataType, string columnName, CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, dataType, columnName, canceller.Token);
+			var stream = await WithMiddleware(SelectStreamImpl, dataType, columnName, canceller.Token).ConfigureAwait(false);
 			// read to end of stream then return a list
-			return await stream.ToListAsync();
+			return await stream.ToListAsync().ConfigureAwait(false);
 		}
 
 		public async Task<List<T>> SelectManyAsync<T>(string columnName, CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), columnName, canceller.Token);
+			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), columnName, canceller.Token).ConfigureAwait(false);
 			// read to end of stream then return a list
-			return await stream.Cast<T>().ToListAsync();
+			return await stream.Cast<T>().ToListAsync().ConfigureAwait(false);
 		}
 
 		public async IAsyncEnumerable<object> SelectManyStreamAsync(Type dataType, string columnName, [EnumeratorCancellation] CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, dataType, columnName, canceller.Token);
-			await foreach (var row in stream.WithCancellation(token))
+			var stream = await WithMiddleware(SelectStreamImpl, dataType, columnName, canceller.Token).ConfigureAwait(false);
+			await foreach (var row in stream.WithCancellation(token).ConfigureAwait(false))
 			{
 				yield return row;
 			}
@@ -145,8 +145,8 @@ namespace Zenith.Core
 		public async IAsyncEnumerable<T> SelectManyStreamAsync<T>(string columnName, [EnumeratorCancellation] CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), columnName, canceller.Token);
-			await foreach (var row in stream.WithCancellation(token))
+			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), columnName, canceller.Token).ConfigureAwait(false);
+			await foreach (var row in stream.WithCancellation(token).ConfigureAwait(false))
 			{
 				yield return (T)row;
 			}
@@ -155,33 +155,33 @@ namespace Zenith.Core
 		public async Task<T> SelectSingleAsync<T>(string columnName, CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), columnName, canceller.Token);
-			var result = (T)await stream.FirstOrDefaultAsync();
+			var stream = await WithMiddleware(SelectStreamImpl, typeof(T), columnName, canceller.Token).ConfigureAwait(false);
+			var result = (T)await stream.FirstOrDefaultAsync().ConfigureAwait(false);
 			return result;
 		}
 
 		public async Task<object> SelectSingleAsync(Type dataType, string columnName, CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(SelectStreamImpl, dataType, columnName, canceller.Token);
-			var result = await stream.FirstOrDefaultAsync();
+			var stream = await WithMiddleware(SelectStreamImpl, dataType, columnName, canceller.Token).ConfigureAwait(false);
+			var result = await stream.FirstOrDefaultAsync().ConfigureAwait(false);
 			return result;
 		}
 
 		public async Task ExecuteAsync(CancellationToken token = default)
 		{
 			using var canceller = new TokenLink(token);
-			var stream = await WithMiddleware(ExecuteImpl, null, null, canceller.Token);
-			await stream.GetAsyncEnumerator().MoveNextAsync();
+			var stream = await WithMiddleware(ExecuteImpl, null, null, canceller.Token).ConfigureAwait(false);
+			await stream.GetAsyncEnumerator().MoveNextAsync().ConfigureAwait(false);
 		}
 
 
 
 		public async Task<DbDataReader> SelectRawAsync()
 		{
-			var stream = await WithMiddleware(SelectRawImpl, typeof(DbDataReader), null, default);
+			var stream = await WithMiddleware(SelectRawImpl, typeof(DbDataReader), null, default).ConfigureAwait(false);
 			// the consoomer must dispose the reader
-			return (DbDataReader)await stream.FirstAsync();
+			return (DbDataReader)await stream.FirstAsync().ConfigureAwait(false);
 		}
 
 		private IEnumerable<Func<CommandContext, Func<Task<IAsyncEnumerable<object>>>, Task<IAsyncEnumerable<object>>>> EnumerateMiddleware()
@@ -257,7 +257,7 @@ namespace Zenith.Core
 		private async Task<IAsyncEnumerable<object>> WithMiddleware(Func<DbCommand, Type, string, CancellationToken, IAsyncEnumerable<object>> action, Type dataType, string columnName, CancellationToken token)
 		{
 			var command = config.Provider.CreateCommand();
-			command.Connection = await unitOfWork.GetConnectionAsync(this.type);
+			command.Connection = await unitOfWork.GetConnectionAsync(this.type).ConfigureAwait(false);
 			command.Transaction = unitOfWork.Transaction;
 			var context = new CommandContext
 			{
@@ -296,21 +296,21 @@ namespace Zenith.Core
 					}
 				};
 
-				return await enumerator.Current(context, Next);
+				return await enumerator.Current(context, Next).ConfigureAwait(false);
 			}
 		}
 
 
 		private async IAsyncEnumerable<object> SelectStreamImpl(DbCommand command, Type dataType, string columnName, [EnumeratorCancellation] CancellationToken token)
 		{
-			using (var reader = await command.ExecuteReaderAsync())
+			using (var reader = await command.ExecuteReaderAsync().ConfigureAwait(false))
 			{
 				if (reader.HasRows)
 				{
 					if (columnName == null)
 					{
 						// use the mapper
-						await foreach (var row in config.Provider.MapStream(dataType, reader, token))
+						await foreach (var row in config.Provider.MapStream(dataType, reader, token).ConfigureAwait(false))
 						{
 							yield return row;
 						}
@@ -318,7 +318,7 @@ namespace Zenith.Core
 					else
 					{
 						// just read that column directly
-						while (await reader.ReadAsync())
+						while (await reader.ReadAsync().ConfigureAwait(false))
 						{
 							var raw = reader[columnName];
 
@@ -353,13 +353,13 @@ namespace Zenith.Core
 
 		private async IAsyncEnumerable<object> ExecuteImpl(DbCommand command, Type dataType, string columnName, [EnumeratorCancellation] CancellationToken token)
 		{
-			yield return await command.ExecuteNonQueryAsync(token);
+			yield return await command.ExecuteNonQueryAsync(token).ConfigureAwait(false);
 		}
 
 		private async IAsyncEnumerable<DbDataReader> SelectRawImpl(DbCommand command, Type dataType, string columnName, [EnumeratorCancellation] CancellationToken token)
 		{
 			// the reader must be disposed by the consoomer
-			var reader = await command.ExecuteReaderAsync();
+			var reader = await command.ExecuteReaderAsync().ConfigureAwait(false);
 			yield return reader;
 		}
 

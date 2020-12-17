@@ -72,7 +72,7 @@ namespace Zenith.Core
 			if (connection != null && connection.State != ConnectionState.Broken && connection.State != ConnectionState.Closed)
 			{
 				// we good
-				await CreateTransaction(type);
+				await CreateTransaction(type).ConfigureAwait(false);
 				return connection;
 			}
 			else if (connection != null)
@@ -83,8 +83,8 @@ namespace Zenith.Core
 
 			connection = Config.Provider.CreateConnection();
 			connection.ConnectionString = config.ConnectionString;
-			await connection.OpenAsync();
-			await CreateTransaction(type);
+			await connection.OpenAsync().ConfigureAwait(false);
+			await CreateTransaction(type).ConfigureAwait(false);
 			return connection;
 		}
 
@@ -99,7 +99,7 @@ namespace Zenith.Core
 					case SqlTypeEnum.Delete:
 					case SqlTypeEnum.Insert:
 					default:
-						Transaction = await config.Provider.CreateTransaction(connection);
+						Transaction = await config.Provider.CreateTransaction(connection).ConfigureAwait(false);
 						break;
 					case SqlTypeEnum.Select:
 						// no transaction needed
@@ -112,7 +112,7 @@ namespace Zenith.Core
 		{
 			if (Transaction != null)
 			{
-				await Transaction.CommitAsync(token);
+				await Transaction.CommitAsync(token).ConfigureAwait(false);
 				Transaction = null;
 			}
 		}
@@ -121,7 +121,7 @@ namespace Zenith.Core
 		{
 			if (Transaction != null)
 			{
-				await Transaction.RollbackAsync(token);
+				await Transaction.RollbackAsync(token).ConfigureAwait(false);
 			}
 		}
 

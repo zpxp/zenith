@@ -83,7 +83,7 @@ namespace Zenith.Core
 
 		private async Task ReadData()
 		{
-			while (await reader.ReadAsync(token))
+			while (await reader.ReadAsync(token).ConfigureAwait(false))
 			{
 				var row = Enumerable.Range(0, reader.FieldCount).ToDictionary(reader.GetName, reader.GetValue, config.IdentifierNameComparer);
 				var pk = row[pkColumn];
@@ -98,7 +98,7 @@ namespace Zenith.Core
 		internal async IAsyncEnumerable<object> MapAsync()
 		{
 			//begin the db read
-			await ReadData();
+			await ReadData().ConfigureAwait(false);
 
 			foreach (var node in rootNodes)
 			{

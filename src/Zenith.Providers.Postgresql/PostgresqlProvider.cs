@@ -49,7 +49,7 @@ namespace Zenith.Providers.Postgresql
 
 		public async ValueTask<DbTransaction> CreateTransaction(DbConnection connection)
 		{
-			return await (connection as NpgsqlConnection).BeginTransactionAsync();
+			return await (connection as NpgsqlConnection).BeginTransactionAsync().ConfigureAwait(false);
 		}
 
 		public DbParameter CreateParamater(string parameterName, Type valueType, object value)
